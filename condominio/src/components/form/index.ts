@@ -6,7 +6,6 @@ export * from "./CurrencyInput";
 export * from "./PhoneNumberInput";
 export * from "./switch";
 export * from "./textarea";
-export * from "./RangeDateInput";
 export * from "./Combobox";
 export * from "./label";
 export * from "./DNIInput";
