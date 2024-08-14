@@ -1,0 +1,31 @@
+.adm-landing-page-header {
+    height: 60px;
+    border-bottom: solid 1px #ccc;
+    box-shadow: 0 2px 5px -2px grey;
+  
+    &>.header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+  
+      &>.logo {
+        font-weight: 600;
+      }
+  
+      &>.menu {
+        display: flex;
+        cursor: pointer;
+        font-weight: 600;
+  
+        &:hover {
+          color: var(--color-gray-10)
+        }
+        &>.mercado-icon {
+          margin-right: 5px;
+        }
+      }
+    }
+  }

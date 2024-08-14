@@ -1,0 +1,14 @@
+*body {
+    margin: 0px;
+    font-family: 'roboto', sans-serif
+  }
+  
+  .adm-default-layout {
+    display           : grid;
+    margin            : 0 auto;
+    position          : relative;
+    width             : 100%;
+    min-height        : 100vh;
+    grid-template-rows: min-content 1fr min-content;
+  }
+  
