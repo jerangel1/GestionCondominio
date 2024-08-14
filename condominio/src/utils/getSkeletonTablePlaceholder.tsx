@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/atoms/Skeleton";
+import { Skeleton } from "@/components/form/loaders/Skeleton";
 
 
 type ColumnType<T> = {

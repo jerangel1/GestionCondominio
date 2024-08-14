@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { AdminLayout } from '../../layouts/AdminLayouts';
-import { Button} from '../ui';
-import { Input, Select} from '../form';
-
-
-
+import { Button } from '../ui';
+import { Input, Select } from '../form';
 import toast from 'react-hot-toast';
 
-const estados = [
-    { value: 'activo', id: 1},
-    { value: 'inactivo' , id: 2},
-];
+type EstadoOption = {
+    value: string;
+    id: number;
+};
 
-const metodosPago = [
-    { value: 'efectivo', id: 1},
-    { value: 'tarjeta', id: 3},
-    { value: 'transferencia', id: 4},
-];
+type MetodoPagoOption = {
+    value: string;
+    id: number;
+};
 
 type Residente = {
     id: string;
@@ -26,11 +22,28 @@ type Residente = {
     metodoPago: string;
 };
 
+type FormValues = {
+    nombre: string;
+    estado: string;
+    metodoPago: string;
+};
+
+const estados: EstadoOption[] = [
+    { value: 'activo', id: 1 },
+    { value: 'inactivo', id: 2 },
+];
+
+const metodosPago: MetodoPagoOption[] = [
+    { value: 'efectivo', id: 1 },
+    { value: 'tarjeta', id: 3 },
+    { value: 'transferencia', id: 4 },
+];
+
 export const ResidentesTemplate = () => {
     const [addingResidente, setAddingResidente] = useState(false);
     const [residentes, setResidentes] = useState<Residente[]>([]);
 
-    const methods = useForm({
+    const methods = useForm<FormValues>({
         defaultValues: {
             nombre: '',
             estado: '',
@@ -40,13 +53,11 @@ export const ResidentesTemplate = () => {
 
     const { control, handleSubmit, formState: { errors } } = methods;
 
-
-    const onSubmit = (data: any) => {
-        // Aquí iría la lógica para guardar el nuevo residente
+    const onSubmit = (data: FormValues) => {
         console.log(data);
         toast.success('Residente agregado con éxito');
         setAddingResidente(false);
-        // Actualizar la lista de residentes
+        // Aquí iría la lógica para actualizar la lista de residentes
     };
 
     return (
@@ -67,7 +78,7 @@ export const ResidentesTemplate = () => {
                                     control={control}
                                     rules={{ required: 'El nombre es requerido' }}
                                     render={({ field }) => (
-                                        <Input {...field} label="Nombre" error={errors.nombre?.message} />
+                                        <Input {...field} label="Nombre" />
                                     )}
                                 />
                                 <Controller
@@ -78,8 +89,6 @@ export const ResidentesTemplate = () => {
                                         <Select
                                             {...field}
                                             label="Estado"
-                                            options={estados}
-                                            error={errors.estado?.message}
                                         />
                                     )}
                                 />
@@ -91,8 +100,6 @@ export const ResidentesTemplate = () => {
                                         <Select
                                             {...field}
                                             label="Método de Pago"
-                                            options={metodosPago}
-                                            error={errors.metodoPago?.message}
                                         />
                                     )}
                                 />

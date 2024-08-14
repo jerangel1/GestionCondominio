@@ -1,8 +1,7 @@
 import { useRef, ChangeEventHandler, useState, useEffect } from "react";
-
-import { Input, InputProps } from "@components/form";
+import { Input, InputProps } from "@/components/form";
 import { format } from "date-fns";
-import { useOnClickOutside } from "@hooks/useOnClickOutside";
+import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 
 import { es } from "date-fns/locale";
 import { type ClassNames, type DateAfter, DayPicker, type SelectSingleEventHandler } from "react-day-picker";

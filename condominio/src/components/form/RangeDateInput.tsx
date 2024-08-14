@@ -11,7 +11,7 @@ import { Button } from "../ui";
 import { Input, InputProps } from "@/components/form/input";
 const today = new Date();
 
-const classNames: ClassNames = {
+const classNames: Partial<ClassNames> = {
   ...styles,
   head: "text-sm text-zinc-600 font-normal",
   table: "mt-2 border-spacing-0",
